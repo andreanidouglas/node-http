@@ -1,0 +1,24 @@
+{
+  "name": "node-http",
+  "version": "1.0.0",
+  "description": "http server for handling android (or anykind) of requestrs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreanidouglas/node-http.git"
+  },
+  "keywords": [
+    "http",
+    "node",
+    "android"
+  ],
+  "author": "Douglas Andreani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreanidouglas/node-http/issues"
+  },
+  "homepage": "https://github.com/andreanidouglas/node-http#readme"
+}
