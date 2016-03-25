@@ -1,7 +1,7 @@
 {
   "name": "node-http",
   "version": "1.0.0",
-  "description": "http server for handling android (or anykind) of requestrs",
+  "description": "http server for handling android (or anykind) of requests",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
