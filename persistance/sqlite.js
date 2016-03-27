@@ -23,7 +23,7 @@ database.prototype.select = function (identifier, c_callback)
   this.connect();
   var db = this.db;
 
-  db.each("Select * from people where identifier = ?", identifier, function(err, row){
+  db.each("SELECT * FROM people WHERE identifier = ?", identifier, function(err, row){
     result = [row.identifier, row.name, row.age];
     resultArray.push(result);
     c_callback(resultArray);
@@ -40,10 +40,11 @@ database.prototype.insert = function(dataArray)
   var fieldValues="";
   for (var index=0; index<dataArray.length; index++){
       fieldNames += dataArray[index].key + ", ";
-      fieldValues += dataArray[index].value + ", ";
+      fieldValues += "'" + dataArray[index].value + "'" + ", ";
   }
   sql = "INSERT INTO people ("+ fieldNames.trim().substring(0, fieldNames.length-2) +") VALUES" +
-  "(" + fieldValues.trim().substring(0, fieldValues.length-2) + ")"
+  "(" + fieldValues.trim().substring(0, fieldValues.length-2) + ")";
+
 
   db.run(sql, function(err, result){
     if (err)
@@ -56,7 +57,7 @@ database.prototype.insert = function(dataArray)
     }
   });
 
-}
+};
 
 
 module.exports = database;
