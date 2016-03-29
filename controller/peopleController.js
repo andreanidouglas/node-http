@@ -2,7 +2,7 @@ var people = require('../model/people');
 
 function PeopleController() {}
 
-PeopleController.prototype.add = function(name, age, identifier)
+PeopleController.prototype.add = function(name, age, identifier, w_callback)
 {
   var person = new people();
 
@@ -10,6 +10,8 @@ PeopleController.prototype.add = function(name, age, identifier)
   person.setAge(age);
   person.setIdentifier(identifier);
   person.set(person);
+
+  w_callback(null);
 };
 
 PeopleController.prototype.getPerson = function(identifier, g_callback)
