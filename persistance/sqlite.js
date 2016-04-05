@@ -23,8 +23,11 @@ database.prototype.select = function (identifier, c_callback)
   this.connect();
   var db = this.db;
 
-  db.each("SELECT * FROM people WHERE identifier = ?", identifier, function(err, row){
-    result = [row.identifier, row.name, row.age];
+  db.each("SELECT pp.identifier, pp.name, pp.age, ( SELECT MIN(p.identifier) " +
+          "                                           FROM people as p " +
+          "                                          WHERE p.identifier > pp.identifier  ) as next  " +
+          "  FROM people as pp WHERE pp.identifier = ?", identifier, function(err, row){
+    result = [row.identifier, row.name, row.age, row.next];
     resultArray.push(result);
     c_callback(resultArray);
   });
