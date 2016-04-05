@@ -57,7 +57,7 @@ var selectValidUrl = function(url){
 
   for (i=0; i<urlArray.length;i++)
   {
-    if (url.match(urlArray[i] + "\?[[:alnum:]]") != null);
+    if (url.match(urlArray[i] + "\?.+") != null)
     {
       return url;
     }
@@ -89,4 +89,6 @@ var httpHandler = function(request, response){
 };
 
 var server = http.createServer(httpHandler);
-server.listen(8080);
+server.listen(8080, function(){
+  console.log("Listening on: 8080");
+});
